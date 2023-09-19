@@ -29,4 +29,9 @@ class Post(models.Model):
         self.pk : 해당 포스트의 pk 값. 자동생성되는 포스트의 id 값이라고 생각.
         self.title: 제목.
         """
-        return f'[{self.pk}]{self.title}'
+        return f"[{self.pk}]{self.title}"
+    
+    def get_absolute_url(self):
+        return f'/news/{self.pk}'
+    
+    
