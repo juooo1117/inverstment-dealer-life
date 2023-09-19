@@ -102,11 +102,11 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "Asia/Seoul" # 시간대 설정
 
 USE_I18N = True
 
-USE_TZ = True
+USE_TZ = False # 시간대 설정
 
 
 # Static files (CSS, JavaScript, Images)

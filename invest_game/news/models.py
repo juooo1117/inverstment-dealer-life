@@ -17,7 +17,16 @@ class Post(models.Model):
     title = models.CharField(max_length=30)
     content = models.TextField()
 
-    created_at = models.DateTimeField()  # 년,월,일,시,초 기록
+    created_at = models.DateTimeField(auto_now_add=True)  # 년,월,일,시,초 기록 / auto_now_add=True 시간 자동저장
+    updated_at = models.DateTimeField(auto_now=True) #auto_now=True 다시 저장할 때마다 저장
     # author = 추후 작성 예정.
 
     # python manage.py makemigrations : 마이그레이션 등록
+
+
+    def __str__(self):
+        """
+        self.pk : 해당 포스트의 pk 값. 자동생성되는 포스트의 id 값이라고 생각.
+        self.title: 제목.
+        """
+        return f'[{self.pk}]{self.title}'
