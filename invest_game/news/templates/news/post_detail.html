@@ -1,19 +1,16 @@
-<!DOCTYPE html>
-<html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ post.title }} - news</title>
-  </head>
-  <body>
-    <nav>
-      <a href="/news/">NEWS</a>
-    </nav>
+{% extends './_base.html' %} {% load static %} {% block content %}
+<!-- <nav>
+  <a href="/news/">NEWS</a>
+</nav> -->
 
-    <h1>{{ post.title }}</h1>
-    <h4>{{ post.created_at }}</h4>
+<div class="news_content">
+  <div class="news_txt">
+    <h2>{{ post.title }}</h2>
+    <span>{{ post.created_at }}</span>
     <p>{{ post.content }}</p>
+  </div>
 
-    <h3>여기는 댓글</h3>
-  </body>
-</html>
+  <button><a href="/news/">뒤로가기</a></button>
+</div>
+
+{% endblock %}

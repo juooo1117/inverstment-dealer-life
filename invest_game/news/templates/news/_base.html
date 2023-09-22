@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load sass_tags %} {% load static %}
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>news feed</title>
+    <link
+      href="{% sass_src 'scss/reset.scss' %}"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="{% sass_src 'scss/news_main.scss' %}"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+  <body>
+    <div id="f20">
+      
+
+      {% block content %} {% endblock %}
+    </div>
+  </body>
+</html>
