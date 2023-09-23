@@ -1,6 +1,7 @@
 import json
 import random
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+
 from .models import Question
 
 def start_game(request):
@@ -33,9 +34,8 @@ def answer_question(request):
         user_answer = request.POST.get('answer')
         if user_answer is not None:
             # 사용자가 제출한 답을 확인합니다.
-            correct_answer = questions[current_question_index]['answer']  # 정답을 가져옵니다.
+            correct_answer = questions[current_question_index]['answer']
             if user_answer == str(correct_answer):
-                # 맞춘 문제 개수를 증가시킵니다.
                 correct_answers += 1
                 request.session['correct_answers'] = correct_answers
 
@@ -44,16 +44,13 @@ def answer_question(request):
             question['user_answer'] = user_answer
             request.session[f'user_answer_{question["id"]}'] = user_answer
 
-        # 다음 문제로 이동합니다.
         current_question_index += 1
         request.session['current_question_index'] = current_question_index
 
         if current_question_index < len(questions):
-            # 아직 문제가 남아 있다면 다음 문제를 표시합니다.
             return render(request, 'quiz/question.html', {'question': questions[current_question_index]})
         else:
-            # 모든 문제를 다 풀었을 때, 결과 화면으로 이동합니다.
-            return render(request, 'quiz/quiz_result.html', {'correct_answers': correct_answers})
+            return redirect('quiz_result')  # 모든 문제를 다 풀었을 때, 결과 화면으로 이동합니다.
 
     return render(request, 'quiz/question.html', {'question': questions[current_question_index]})
 
@@ -71,4 +68,4 @@ def view_quiz_result(request):
         return render(request, 'quiz/quiz_result.html', {'correct_answers': correct_answers, 'questions': questions})
     
     # 세션에 문제와 정답 개수가 없는 경우, 다시 질문 화면으로 이동합니다.
-    return render(request, 'quiz/question.html')
+    return render(request, 'quiz/quiz_result.html', {'correct_answers': 0, 'questions': []})
