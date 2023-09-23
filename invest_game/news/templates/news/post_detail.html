@@ -10,7 +10,7 @@
     <p>{{ post.content }}</p>
   </div>
 
-  <button><a href="/news/">뒤로가기</a></button>
+  <button><a href="{% url 'news_feed' %}">뒤로가기</a></button>
 </div>
 
 {% endblock %}

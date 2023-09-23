@@ -14,6 +14,10 @@ def start_game(request):
 
     # 10개의 문제를 무작위로 추출합니다.
     random_questions = random.sample(all_questions, 10)
+    
+    # 각 문제에 순서를 부여합니다.
+    for index, question in enumerate(random_questions, start=1):
+        question['su'] = index
 
     # 추출된 문제를 세션에 저장합니다.
     request.session['questions'] = random_questions
@@ -29,7 +33,8 @@ def answer_question(request):
     questions = request.session['questions']
     current_question_index = request.session['current_question_index']
     correct_answers = request.session.get('correct_answers', 0)
-
+    print(f"current_question_index: {current_question_index}") 
+    
     if request.method == 'POST':
         user_answer = request.POST.get('answer')
         if user_answer is not None:
@@ -52,7 +57,7 @@ def answer_question(request):
         else:
             return redirect('quiz_result')  # 모든 문제를 다 풀었을 때, 결과 화면으로 이동합니다.
 
-    return render(request, 'quiz/question.html', {'question': questions[current_question_index]})
+    return render(request, 'quiz/question.html', {'question': questions[current_question_index], 'current_question_index': 1})
 
 
 def view_quiz_result(request):

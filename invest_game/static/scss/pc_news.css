@@ -1,4 +1,4 @@
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 769px) {
   #f20 {
     min-height: 100vh;
     padding: 40px 20px;
@@ -122,4 +122,4 @@
     color: #000;
     font-family: "BMHannaPro"; } }
 
-/*# sourceMappingURL=news_main.css.map */
+/*# sourceMappingURL=pc_news.css.map */
