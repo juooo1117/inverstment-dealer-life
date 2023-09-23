@@ -1,11 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h2>question</h2>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz Game</title>
+  </head>
+  <body>
+    <h1>문제</h1>
+    <p>{{ question.headline }}</p>
+    <p>{{ question.lead }}</p>
+    <p>투자 대상: {{ question.invest }}</p>
+
+    <form method="post" action="{% url 'answer_question' %}">
+      {% csrf_token %}
+      <label> <input type="radio" name="answer" value="1" /> True </label>
+      <label> <input type="radio" name="answer" value="0" /> False </label>
+      <br />
+      <input type="submit" value="다음 문제로 이동" />
+    </form>
+  </body>
 </html>
