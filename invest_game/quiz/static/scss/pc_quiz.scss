@@ -1,4 +1,9 @@
 @media screen and (min-width: 769px) {
+  #pc_f {
+    max-width: 50%;
+    margin:  0 auto;
+  }
+  
   #f20 {
     min-height: calc(100vh - 80px);
     padding: 40px 20px;

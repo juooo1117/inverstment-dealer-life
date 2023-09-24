@@ -1,9 +1,13 @@
-// 모바일
 @media screen and (min-width: 769px) {
   #f20 {
     min-height: 100vh;
     padding: 40px 20px;
     background-color: #eef0eb;
+  }
+
+  #pc_f {
+    max-width: 50%;
+    margin:  0 auto;
   }
 
   header {
