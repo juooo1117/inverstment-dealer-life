@@ -1,18 +1,37 @@
-{% extends './_base.html' %} {% block content %}
+{% extends './_base.html' %}
+{% load static %}
+{% block content %}
 
-<h1>퀴즈 결과</h1>
-<p>맞힌 문제 개수: {{ correct_answers }}</p>
+  <div class="score">
+    <h2>퀴즈 점수</h2>
+    <p>SCORE:
+      {{ correct_answers }}</p>
+  </div>
 
-<ul>
-  {% for question in questions %}
-  <li>
-    <h2>{{ question.headline }}</h2>
-    <p>{{ question.lead }}</p>
-    <p>투자 대상: {{ question.invest }}</p>
-    <p>정답: {{ question.correct_answer }}</p>
-    <p>사용자의 답: {{ question.user_answer }}</p>
-  </li>
-  {% endfor %}
-</ul>
-<a href="{% url 'start_game' %}">새 게임 시작</a>
+  <div class="modal">
+    <div class="modal_frame">
+      <h2>오답노트</h2>
+      <ul>
+        {% for question in questions %}
+          {% if question.correct_answer != question.user_answer %}
+            <li>
+              <span>문제
+                {{ question.su }}번</span>
+              <h2>{{ question.headline }}</h2>
+              <p>{{ question.lead }}</p>
+              <p>투자 대상:
+                {{ question.invest }}</p>
+              <p>정답:
+                {{ question.correct_answer }}</p>
+              <p>사용자의 답:
+                {{ question.user_answer }}</p>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div class="modal_bg"></div>
+  </div>
+  <a href="{% url 'start_game' %}">새 게임 시작</a>
 {% endblock %}

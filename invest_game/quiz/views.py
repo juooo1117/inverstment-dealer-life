@@ -24,7 +24,7 @@ def start_game(request):
     request.session['current_question_index'] = 0
     request.session['correct_answers'] = 0
 
-    return render(request, 'quiz/start_game.html', {'question': random_questions[0]})
+    return render(request, 'quiz/start_game.html', {'question': random_questions[0], })
 
 def answer_question(request):
     if 'questions' not in request.session or 'current_question_index' not in request.session:
@@ -62,7 +62,7 @@ def answer_question(request):
 
 def view_quiz_result(request):
     if 'questions' in request.session and 'correct_answers' in request.session:
-        correct_answers = request.session['correct_answers']
+        correct_answers = request.session['correct_answers'] * 1000
         questions = request.session['questions']
 
         # 각 문제에 사용자의 답과 정답을 추가합니다.
