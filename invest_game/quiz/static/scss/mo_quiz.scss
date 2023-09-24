@@ -10,6 +10,55 @@
     background-repeat: no-repeat;
   }
 
+  #f20:has(#main) {
+    background-image: url("/static/img/b.png");
+    background-size: cover;
+  }
+
+  #main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 60vh;
+
+    h5 {
+      width: 100%;
+      height: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        max-width: 400px;
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    p {
+      font-size: 20px;
+      margin-top: 32px;
+      margin-bottom: 16px;
+    }
+
+    form a {
+      width: 160px;
+      height: 50px;
+      display: block;
+      background-color: #004235;
+      border-radius: 10px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      color: #fff;
+      font-size: 20px;
+      font-family: "BMHannaPro";
+    }
+  }
+
   .quiz_frame {
     .progress {
       appearance: none;
@@ -36,18 +85,25 @@
 
       font-size: 20px;
       font-weight: 700;
+      position: relative;
 
       svg {
         margin-right: 4px;
       }
 
+      p {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
       button {
-        width: 57px;
-        height: 20px;
+        width: 70px;
+        height: 30px;
         border-radius: 20px;
         background: #ffd66c;
 
-        font-size: 12px;
+        font-size: 16px;
         color: #000;
         font-family: Suez One;
       }
@@ -295,7 +351,7 @@
               font-size: 16px;
               font-weight: bold;
             }
-            h2{
+            h2 {
               font-size: 16px;
             }
           }
@@ -303,13 +359,13 @@
           .q_con {
             font-size: 16px;
             line-height: 24px;
-            
           }
 
           .q_dab {
             margin-top: 16px;
             font-size: 16px;
-            background-color: #f0f0f0;display: inline-block;
+            background-color: #f0f0f0;
+            display: inline-block;
           }
         }
       }
