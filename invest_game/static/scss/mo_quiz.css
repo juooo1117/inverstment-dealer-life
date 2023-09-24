@@ -1,6 +1,6 @@
 @media screen and (max-width: 768px) {
   #f20 {
-    min-height: 100vh;
+    min-height: calc(100vh - 80px);
     padding: 40px 20px;
     background: #f8f7f3;
     background-image: url("/static/img/back.png");
@@ -175,16 +175,25 @@
     display: none; }
     #modal.open {
       display: block !important; }
+    #modal button {
+      position: fixed;
+      color: #fff;
+      font-size: 16px;
+      right: 20px;
+      top: 40px; }
     #modal .modal_frame {
-      width: calc(100vw - 160px);
+      width: calc(100vw - 80px);
       height: calc(100vh - 200px);
-      padding: 30px;
+      padding: 20px;
       position: fixed;
       top: 70px;
-      left: 50px;
+      left: 20px;
       background: #fff;
       border-radius: 20px;
       overflow-y: auto; }
+      #modal .modal_frame > h2 {
+        font-size: 24px;
+        margin-bottom: 16px; }
       #modal .modal_frame ul {
         display: flex;
         justify-content: start;
@@ -195,9 +204,29 @@
           border: 1px solid #ccc;
           border-radius: 10px;
           padding: 20px; }
+          #modal .modal_frame ul li .q_head {
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            margin-bottom: 16px; }
+            #modal .modal_frame ul li .q_head span {
+              margin-right: 8px;
+              display: inline-block;
+              font-size: 16px;
+              font-weight: bold; }
+            #modal .modal_frame ul li .q_head h2 {
+              font-size: 16px; }
+          #modal .modal_frame ul li .q_con {
+            font-size: 16px;
+            line-height: 24px; }
+          #modal .modal_frame ul li .q_dab {
+            margin-top: 16px;
+            font-size: 16px;
+            background-color: #f0f0f0;
+            display: inline-block; }
     #modal .modal_bg {
       width: 100vw;
       height: 100vh;
-      background: rgba(0, 0, 0, 0.5); } }
+      background: rgba(0, 0, 0, 0.7); } }
 
 /*# sourceMappingURL=mo_quiz.css.map */

@@ -28,23 +28,33 @@
   <a href="{% url 'start_game' %}" class="newgame">새 게임 시작</a>
 
   <div id="modal">
-    <button onclick="ModalOpen()">닫기</button>
+    <button onclick="ModalOpen()">닫기 X</button>
     <div class="modal_frame">
-      <h2>오답노트</h2>
+      <h2>다시 체크해봅시다.</h2>
       <ul>
         {% for question in questions %}
           {% if question.correct_answer != question.user_answer %}
             <li>
-              <span>문제
-                {{ question.su }}번</span>
+              <div class="q_head">
+              <span>
+                {{ question.su }}번 문제</span>
               <h2>{{ question.headline }}</h2>
-              <p>{{ question.lead }}</p>
-              <p>투자 대상:
-                {{ question.invest }}</p>
-              <p>정답:
-                {{ question.correct_answer }}</p>
-              <p>사용자의 답:
-                {{ question.user_answer }}</p>
+              </div>
+              <p class="q_con">{{ question.lead }}</p>
+              <p class="q_dab">정답: {{ question.invest }}
+                {% if question.correct_answer %}
+                  상승
+                {% else %}
+                  하락
+                {% endif %}
+              </p>
+              {% comment %} <p>사용자의 답:
+                {% if question.user_answer %}
+                  상승
+                {% else %}
+                  하락
+                {% endif %}
+              </p> {% endcomment %}
             </li>
           {% endif %}
         {% endfor %}

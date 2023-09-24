@@ -70,7 +70,7 @@ def view_quiz_result(request):
         # 각 문제에 사용자의 답과 정답을 추가합니다.
         for question in questions:
             question['user_answer'] = request.session.get(f'user_answer_{question["id"]}', 'N/A')
-            question['correct_answer'] = 'True' if question['answer'] else 'False'
+            question['correct_answer'] = '1' if question['answer'] else '0'
 
         return render(request, 'quiz/quiz_result.html', {'correct_answers': correct_answers, 'questions': questions, 'rank_range': rank_range})
     
