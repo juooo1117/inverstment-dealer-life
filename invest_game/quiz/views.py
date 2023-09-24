@@ -61,6 +61,8 @@ def answer_question(request):
 
 
 def view_quiz_result(request):
+    rank_range = list(range(1, 6))
+    
     if 'questions' in request.session and 'correct_answers' in request.session:
         correct_answers = request.session['correct_answers'] * 1000
         questions = request.session['questions']
@@ -70,7 +72,7 @@ def view_quiz_result(request):
             question['user_answer'] = request.session.get(f'user_answer_{question["id"]}', 'N/A')
             question['correct_answer'] = 'True' if question['answer'] else 'False'
 
-        return render(request, 'quiz/quiz_result.html', {'correct_answers': correct_answers, 'questions': questions})
+        return render(request, 'quiz/quiz_result.html', {'correct_answers': correct_answers, 'questions': questions, 'rank_range': rank_range})
     
     # 세션에 문제와 정답 개수가 없는 경우, 다시 질문 화면으로 이동합니다.
-    return render(request, 'quiz/quiz_result.html', {'correct_answers': 0, 'questions': []})
+    return render(request, 'quiz/quiz_result.html', {'correct_answers': 0, 'questions': [], 'rank_range': rank_range})

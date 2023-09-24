@@ -8,7 +8,27 @@
       {{ correct_answers }}</p>
   </div>
 
-  <div class="modal">
+  <div class="rank">
+    <h2>명예의 전당</h2>
+    <ul>
+      {% for rank in rank_range %}
+        <li>
+          <div>
+            <span>{{ rank }}위</span>
+            <p>닉네임</p>
+          </div>
+          <h4>10000점</h4>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <button id="note" onclick="ModalOpen()">틀린 문제 확인하기</button>
+
+  <a href="{% url 'start_game' %}" class="newgame">새 게임 시작</a>
+
+  <div id="modal">
+    <button onclick="ModalOpen()">닫기</button>
     <div class="modal_frame">
       <h2>오답노트</h2>
       <ul>
@@ -33,5 +53,13 @@
 
     <div class="modal_bg"></div>
   </div>
-  <a href="{% url 'start_game' %}">새 게임 시작</a>
+
+  <script>
+    const ModalOpen = () => {
+      let modalPop = document.getElementById('modal')
+      modalPop
+        .classList
+        .toggle('open')
+    }
+  </script>
 {% endblock %}
