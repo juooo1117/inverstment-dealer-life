@@ -6,3 +6,8 @@ class Question(models.Model):
     lead = models.TextField()
     invest = models.CharField(max_length=30)
     answer = models.BooleanField()
+
+
+class Rank(models.Model):
+    nickname = models.CharField(max_length=100)
+    score = models.IntegerField()

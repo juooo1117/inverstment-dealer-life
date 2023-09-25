@@ -64,13 +64,9 @@
     margin-left: -20px; }
   .news_tip ol {
     display: flex;
-    flex-wrap: nowrap;
     height: 150px;
-    overflow-x: auto;
-    width: auto;
+    width: 100%;
     column-gap: 16px; }
-    .news_tip ol::-webkit-scrollbar {
-      display: none; }
     .news_tip ol li {
       min-width: 140px;
       width: 140px;
@@ -78,6 +74,7 @@
       background-color: #e7ddc8;
       border-radius: 16px;
       font-size: 20px;
+      line-height: 26px;
       text-align: center;
       display: flex;
       align-items: center;
