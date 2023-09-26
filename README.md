@@ -21,3 +21,8 @@ django + LSTM 교육용 주식 예측 게임 개발
 - Django
 - konlpy
 - MECAB
+
+## 📚 데이터
+- 데이터는 [여기서](https://drive.google.com/drive/folders/1arbxmEQmTBWxk4C6Jb6BagznDC0onNT9?usp=sharing) 다운로드 가능 ! 
+  
+
