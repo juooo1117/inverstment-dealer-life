@@ -10,16 +10,17 @@
 
   <div class="rank">
     <h2>명예의 전당</h2>
-    <form id="rankForm" style="display: none;" method="post" action="{% url 'quiz_result' %}">
+    {% if show_form %}
+    <form id="rankForm" method="post" action="{% url 'quiz_result' %}">
         {% csrf_token %}
         <label for="nickname">닉네임:</label>
         <input type="text" id="nickname" name="nickname">
         <button type="submit">랭킹 저장</button>
     </form>
+    {% endif %}
 
     <ul>
       {% if top_ranks %}
-        
           {% for rank in top_ranks %}
             <li> 
               <div>
@@ -29,12 +30,10 @@
               <h4>{{ rank.score }}점</h4>
             </li>
           {% endfor %}
-        
       {% endif %}
-
-     
     </ul>
-  </div>
+</div>
+
 
   <button id="note" onclick="ModalOpen()">틀린 문제 확인하기</button>
 

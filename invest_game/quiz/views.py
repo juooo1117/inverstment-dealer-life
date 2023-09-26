@@ -118,3 +118,10 @@ def view_quiz_result(request):
     
     # 세션에 문제와 정답 개수가 없는 경우, 다시 질문 화면으로 이동합니다.
     return render(request, 'quiz/quiz_result.html', {'correct_answers': 0, 'questions': [], 'rank_range': rank_range})
+
+
+
+def lookup_word(request):
+    query = request.GET.get('word', '')
+    result = find_word_definition(query)  # 이 함수는 단어 정의를 검색하는 함수로 대체해야 합니다.
+    return render(request, 'quiz/question.html', {'query': query, 'result': result})
