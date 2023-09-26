@@ -50,8 +50,8 @@
             <li>
               <div class="q_head">
               <span>
-                {{ question.su }}번 문제</span>
-              <h2>{{ question.headline }}</h2>
+                {{ question.idxx }}번 문제</span>
+              <h5>{{ question.headline }}</h5>
               </div>
               <p class="q_con">{{ question.lead }}</p>
               <p class="q_dab">정답: {{ question.invest }}
@@ -61,13 +61,6 @@
                   하락
                 {% endif %}
               </p>
-              {% comment %} <p>사용자의 답:
-                {% if question.user_answer %}
-                  상승
-                {% else %}
-                  하락
-                {% endif %}
-              </p> {% endcomment %}
             </li>
           {% endif %}
         {% endfor %}

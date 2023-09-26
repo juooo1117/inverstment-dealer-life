@@ -91,7 +91,7 @@
     padding: 32px 20px 20px 20px; }
     .quiz_frame .content h5 {
       font-size: 20px;
-      height: 34px;
+      line-height: 26px;
       margin-bottom: 16px; }
     .quiz_frame .content p {
       font-size: 16px;
@@ -222,18 +222,22 @@
     #modal.open {
       display: block !important; }
     #modal button {
+      width: 50%;
       position: fixed;
       color: #fff;
       font-size: 16px;
-      right: 20px;
-      top: 40px; }
+      left: 50%;
+      top: 40px;
+      transform: translate(-50%);
+      text-align: right; }
     #modal .modal_frame {
-      width: calc(100vw - 80px);
+      width: 50%;
       height: calc(100vh - 200px);
       padding: 20px;
       position: fixed;
       top: 70px;
-      left: 20px;
+      left: 50%;
+      transform: translate(-50%);
       background: #fff;
       border-radius: 20px;
       overflow-y: auto; }

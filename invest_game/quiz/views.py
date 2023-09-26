@@ -5,8 +5,11 @@ from django.shortcuts import render, redirect
 from .models import Question
 from .models import Rank
 from django.db.models import F
+from django.http import HttpResponse
+
 
 def start_game(request):
+ 
     # JSON 파일에서 데이터를 읽어옵니다.
     with open('quest.json', 'r', encoding='utf-8') as file:
         data = json.load(file)
@@ -21,12 +24,20 @@ def start_game(request):
     for index, question in enumerate(random_questions, start=1):
         question['su'] = index
 
+    # 3개의 문제를 추가로 무작위로 선택합니다.
+    selected_questions = random.sample(random_questions, 3)
+    global_selected_questions = random.sample(random_questions, 3)
+    
     # 추출된 문제를 세션에 저장합니다.
     request.session['questions'] = random_questions
     request.session['current_question_index'] = 0
     request.session['correct_answers'] = 0
+    request.session['quest3'] = global_selected_questions
+    
+    
+    return render(request, 'quiz/start_game.html', {'question': random_questions[0], 'selected_questions':selected_questions })
 
-    return render(request, 'quiz/start_game.html', {'question': random_questions[0], })
+    
 
 def answer_question(request):
     if 'questions' not in request.session or 'current_question_index' not in request.session:
@@ -59,6 +70,7 @@ def answer_question(request):
         else:
             return redirect('quiz_result')  # 모든 문제를 다 풀었을 때, 결과 화면으로 이동합니다.
 
+
     return render(request, 'quiz/question.html', {'question': questions[current_question_index], 'current_question_index': 1})
 
 
@@ -74,6 +86,7 @@ def view_quiz_result(request):
             question['user_answer'] = request.session.get(f'user_answer_{question["id"]}', 'N/A')
             question['correct_answer'] = '1' if question['answer'] else '0'
             question['su'] = index * 1000
+            question['idxx'] = index
         
         # POST 요청 처리
         if request.method == 'POST':
