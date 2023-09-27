@@ -1,0 +1,69 @@
+{% extends './_base.html' %}
+{% load static %}
+{% block content %}
+
+  {% include 'news/_header.html' %}
+  <div class="main_f">
+    <img src="{% static 'img/total2.png' %}" alt="코스피"/>
+  </div>
+
+  <section class="news news_feed">
+    <h3>NEWS FEED</h3>
+    <p>이슈되고 있는 뉴스기사를 안내합니다.</p>
+
+    <ul>
+      {% for question in selected_questions %}
+        <li>
+          <a onclick="ModalOpen()">
+            <h4>{{question.headline}}</h4>
+            <img src="{% static 'img/go.png' %}" alt="이동"/>
+          </a>
+
+          <div id="modal">
+            <div class="modal_con">
+              <h5>{{ question.headline }}</h5>
+              <p>{{ question.lead }}</p>
+              <span>
+                {% if question.answer %}
+                  {{ question.invest }}가 상승합니다.
+                {% else %}
+                  {{ question.invest }}가 하락합니다.
+                {% endif %}
+              </span>
+            </div>
+            <div class="modal_bg"></div>
+            <button onclick="ModalOpen()">닫기 X</button>
+          </div>
+        </li>
+      {% endfor %}
+
+    </ul>
+  </section>
+
+  <section class="news news_tip">
+    <h3>REMEMBER TIP</h3>
+    <div class="slider">
+      <ol>
+        <li>
+          <h2>모르는 단어에는<br/>힌트를
+            <br>
+            사용해보세요.</h2>
+        </li>
+        <li>
+          <h2>명예의 전당에<br/>함께하세요!</h2>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <a href="{% url 'answer_question' %}" class="quiz_btn">퀴즈풀기</a>
+
+  <script>
+    const ModalOpen = () => {
+      let modalPop = document.getElementById('modal')
+      modalPop
+        .classList
+        .toggle('open')
+    }
+  </script>
+{% endblock %}

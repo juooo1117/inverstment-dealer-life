@@ -1,0 +1,23 @@
+{% extends './_base.html' %}
+{% load sass_tags %}
+{% load static %}
+{% block content %}
+
+  <div id="main">
+    <h5>
+      <img src="{% sass_src 'img/tit.png' %}"/>
+    </h5>
+
+    <p>게임을 시작하세요.</p>
+    <form method="post" action="{% url 'start_game' %}">
+      {% csrf_token %}
+      <a href="{% url 'news_feed' %}">게임시작</a>
+    </form>
+
+    
+  </div>
+
+  <script>
+    console.log(global_selected_questions)
+  </script>
+{% endblock %}
