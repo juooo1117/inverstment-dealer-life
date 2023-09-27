@@ -3,21 +3,10 @@
 <section class="quiz_frame">
   <progress class="progress" value="{{ question.su }}" max="8"></progress>
 
-  <form method="get" action="{% url 'answer_question' %}">
-    <input type="text" name="word" placeholder="단어를 입력하세요" />
-    <input type="submit" value="검색" />
-  </form>
-  <hr />
-  {% if query %}
-  <h2>{{ query }}의 뜻:</h2>
-  {{ result }} {% endif %}
-
-
-
   <div class="head">
     <span>Q{{ question.su }}.</span>
     <p>{{ question.invest }}</p>
-    <button>
+    <button onclick="openHint()">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="8"
@@ -39,6 +28,16 @@
   <div class="content">
     <h5>{{ question.headline }}</h5>
     <p>{{ question.lead }}</p>
+
+    <ul id="hint">
+      {% if question.word1 %}
+      <li>{{ question.word1 }}</li>
+      {% endif %} {% if question.word2 %}
+      <li>{{ question.word2 }}</li>
+      {% endif %} {% if question.word3 %}
+      <li>{{ question.word3 }}</li>
+      {% endif %}
+    </ul>
   </div>
 
   <form method="post" action="{% url 'answer_question' %}" id="answer_form">
@@ -53,7 +52,13 @@
     </label>
 
     <label class="next_btn">
-      <input type="submit" id="submitButton" value="다음 문제" disabled />
+      <input
+        type="submit"
+        id="submitButton"
+        value="다음 문제"
+        disabled
+        name="next_question"
+      />
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="9"
@@ -73,6 +78,11 @@
 </section>
 
 <script>
+  const openHint = () => {
+    let hint_op = document.getElementById("hint");
+    hint_op.classList.toggle("open");
+  };
+
   document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("answer_form");
     const option1 = document.getElementById("option1");

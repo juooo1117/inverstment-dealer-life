@@ -96,6 +96,19 @@
     .quiz_frame .content p {
       font-size: 16px;
       line-height: 26px; }
+    .quiz_frame .content #hint {
+      display: block;
+      margin-top: 20px;
+      background-color: #f8f6eb;
+      font-size: 16px;
+      line-height: 26px;
+      border-radius: 10px;
+      padding: 10px;
+      display: none; }
+      .quiz_frame .content #hint.open {
+        display: block !important; }
+      .quiz_frame .content #hint li {
+        margin-bottom: 8px; }
   .quiz_frame form {
     display: flex;
     justify-content: start;
