@@ -13,11 +13,12 @@
       width: auto; }
   .main_f {
     width: calc(100% - 2px);
-    height: 350px;
+    height: 250px;
     background-color: #fff;
     border-radius: 20px;
     border: 1px solid #222;
     margin-top: 20px;
+    padding: 10px 0;
     display: flex;
     justify-content: center;
     align-items: center;
