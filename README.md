@@ -9,23 +9,23 @@
    - 어린이들에게 흥미유발 및 지속적인 금융교육을 가능하게 하며, 자연스럽게 주식/경제 지식을 습득하여 금융능력을 함양할 수 있다.
 
 
- #### 1.  뉴스와 주가의 상관관계
+ ### 1.  뉴스와 주가의 상관관계
    - 금융 시장은 정보의 흐름에 의존하므로 투자자들은 최신 경제, 금융, 정치 뉴스를 파악하여 투자를 결정함
    - 뉴스의 키워드와 내용은 투자 심리에 영향을 미치고 주가에 반영되므로, 주가 예측의 변수(variable)로 사용되기에 적합
 
 
- #### 2.  뉴스를 이용한 주가예측
+ ### 2.  뉴스를 이용한 주가예측
    - 주식 시장은 정보의 흐름과 심리적 요소에 크게 영향을 받기 때문에 뉴스와 주가는 밀접한 관련성을 갖음
    - 각각의 뉴스마다 긍정(positive) or 부정(negative)적인 감성(sentiment)이 담겨있으므로, 텍스트를 분석하면 KOSPI stock 예측의 정보로 활용이 가능함   
 
 
- #### 3.  뉴스와 KOSPI 정보를 이용
+ ### 3.  뉴스와 KOSPI 정보를 이용
    - 과거의 기업 KOSPI 등락의 흐름과 뉴스를 감성분석(Sentiment analysis)한 결과를 활용하여 주식 예측 모델에 반영하면 주식등라 예측 정확성을 높일 수 있음
 
 
 ## ✏️ Data Acquisition & Pre-processing
 ### Data Acquisition
-#### 주가데이터(KOSPI)
+#### [주가데이터(KOSPI)]
    - yahoo finance 이용하여 특정기간 동안의 기업별 KOSPI 정보를 수집
    - 수집된 정보 중 종가(Close) 데이터만 예측에 사용
 
@@ -39,9 +39,80 @@
      |SK hynix Inc. (000660.KS)|2020/1/1~ 2022/12/31|
 
 
-#### 뉴스데이터 (빅카인즈, https://www.bigkinds.or.kr/)
+#### [뉴스데이터] (빅카인즈, https://www.bigkinds.or.kr/)
    - 통합데이터 빅카인즈 이용하여 기업별, 일자별로 기업 관련 뉴스 수집
    - 일자, 제목, 본문 내용 데이터를 예측에 사용
+
+<p align="center">
+  <img src="https://github.com/DagyeongH/inverstment-dealer-life/assets/95035134/bd66a2e4-afbe-4d21-bb9e-8a3fb581950f">
+</p>
+
+
+## 📖 Data Analysis
+ ### 1.  Okt(Open Korean Text)를 활용한 형태소 분석
+   - 문장을 형태소 단위로 분해하고 각각의 형태소에 품사를 태깅
+   - 중요한 정보를 담는 명사들만을 추출하여 사용한다
+
+
+ ### 2.  Sentiment Analysis(감성분석)
+   - 분해된 단어의 정보적 특징(feature)을 추출하여 text가 positive인지 negative인지를 분류한다.
+   - 분석을 효과적으로 할 수 있도록 텍스트를 수치화하기 위함이 목적이다.
+   - sentiment analysis를 뉴스 데이터의 수치화에 적용했으며, 주요 단계는 다음과 같이 진행된다.
+
+   **[Sentiment Analysis Steps]**
+      **1) Text Data Collection**
+         - 특정 회사와 관련된 정보를 주가 예측 모델의 요소로 반영하고자 하므로, 수집할 데이터는 뉴스기사 형태의 텍스트 데이터이다.
+
+      2) Text Pre-processing
+         - 수집된 뉴스기사에서 불필요한 문자, 공백을 제거하고 tokenize하여 줄 글 형태의 텍스트를 단어나 구문으로 분할한다.
+         - 이후에 형태소 분석을 통해 단어를 정규화(Normalization)하는 작업을 거친다.
+
+      3) Feature Extraction
+         - 텍스트 데이터를 수치화하기 위해서 Word-embedding 통해서 단어를 vector로 만들어준다.
+         - 빈도적인 특징을 이용해서 TF-IDF로 가중치를 부여한다.
+
+      4) Sentiment Classification
+         - label이 지정되지 않은 새로운 텍스트를 training된 모델에 넣으면 해당 텍스트의 감정을 분류한다.
+         - 긍정, 부정, 중립과 같은 label을 텍스트에 labeling 할 수 있다.
+
+
+ ### 3.  TF-IDF(Term Frequency - Inverse Document Frequency)
+   - 특정한 단어가 얼마나 자주 나타나는지, 그렇지 않은지를 측정하여 각각의 단어가 가진 중요도를 계산
+   - 단어의 중요도가 계산되면 이 값은 각각의 단어에 반영되며, 아래와 같이 각 단어는 값을 가지게 된다.  
+
+<p align="center">
+  <img src="https://github.com/DagyeongH/inverstment-dealer-life/assets/95035134/4af81ab3-fec5-4794-ba11-5b5daee92f22">
+</p>
+
+
+  ### 4.  Text Summarization
+   - 문제에 사용될 뉴스 기사를 만들기 위해서 진행하며 추출적요약(extractive summarization)을 사용하여, 정보는 압축되지만 원본의 손실은 발생되지 않도록 하였다. 
+   - 요약 후 문장의 개수를 지정할 수 있도록 하였고, 요약된 뉴스의 결과 예시는 아래와 같다. 즉, 사용자 대상 실제 문제는 아래의 내용으로 제공된다.
+
+     |뉴스제목|요약된 내용|
+     |------|--------|
+     |"LG화학, 배터리 사업부 분사 수면 아래로... '실익 없다' 판단"|"LG화학이 전기자동차 배터리 사업을 분사하는 논의를 사실상 중단했다. 당분간 분사에 우호적인 환경이 조성되기 어렵다는게 대체적인 관측이다. LG화학은 지난해 하반기부터 사내 일각에서 검토하던 전지사업본부 분사 검토를 중단하고 당분간 현 체제를 유지하는 쪽으로 선회했다. 업계에서는 영업손실을 기록하고 있는 LG화학이 배터리 사업 분사를 중단한 결정을 '예견된 수순'으로 받아들이고 있다"|
+
+
+
+## 🏆 Modeling
+
+### LSTM(Long Short-Term Memory)
+   시계열 예측(Timeseries forecasting)에 특화되어 있는 LSTM 모델을 미래 주가 등락 예측에 사용. LSTM은 순차 데이터에서 장거리 종속성을 유지할 수 있는 기능을 가지고 있어 이전의 데이터들을 이용하여 현재의 상태를 이해하고 예측하는 작업에 효과적이다. LSTM Architecture는 순환 신경망(RNN, Recurrent Neural Network)의 한 종류로 RNN Model의 한계인 Gradient Vanishing 문제를 극복한 구조이고, 시간적&순차적 특성을 가지고 있는 주식데이터의 특성을 고려하여 긴 시퀀스의 데이터를 효과적으로 학습할 수 있어서 LSTM Architecture를 modeling에 활용하였다.  
+
+
+   **[LSTM Network]**
+   <p align="center">
+  <img src="https://github.com/DagyeongH/inverstment-dealer-life/assets/95035134/5beef3af-82f2-46a9-bddd-30b8a3fded7b">
+</p>
+
+
+### Model Training Sequence
+#### 1.  단어(noun)별 'score' 계산
+
+
+#### 2.  Vocab dictionary 생성 → TF-IDF 적용
+
 
 
 
