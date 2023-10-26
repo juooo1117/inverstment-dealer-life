@@ -9,23 +9,24 @@
    - 어린이들에게 흥미유발 및 지속적인 금융교육을 가능하게 하며, 자연스럽게 주식/경제 지식을 습득하여 금융능력을 함양할 수 있다.
 
 
- ### 1.  뉴스와 주가의 상관관계
+ #### 1.  뉴스와 주가의 상관관계
    - 금융 시장은 정보의 흐름에 의존하므로 투자자들은 최신 경제, 금융, 정치 뉴스를 파악하여 투자를 결정함
    - 뉴스의 키워드와 내용은 투자 심리에 영향을 미치고 주가에 반영되므로, 주가 예측의 변수(variable)로 사용되기에 적합
 
 
- ### 2.  뉴스를 이용한 주가예측
+ #### 2.  뉴스를 이용한 주가예측
    - 주식 시장은 정보의 흐름과 심리적 요소에 크게 영향을 받기 때문에 뉴스와 주가는 밀접한 관련성을 갖음
    - 각각의 뉴스마다 긍정(positive) or 부정(negative)적인 감성(sentiment)이 담겨있으므로, 텍스트를 분석하면 KOSPI stock 예측의 정보로 활용이 가능함   
 
 
- ### 3.  뉴스와 KOSPI 정보를 이용
+ #### 3.  뉴스와 KOSPI 정보를 이용
    - 과거의 기업 KOSPI 등락의 흐름과 뉴스를 감성분석(Sentiment analysis)한 결과를 활용하여 주식 예측 모델에 반영하면 주식등라 예측 정확성을 높일 수 있음
 
 
 ## ✏️ Data Acquisition & Pre-processing
 ### Data Acquisition
 #### [주가데이터(KOSPI)]
+
    - yahoo finance 이용하여 특정기간 동안의 기업별 KOSPI 정보를 수집
    - 수집된 정보 중 종가(Close) 데이터만 예측에 사용
 
@@ -44,7 +45,7 @@
    - 일자, 제목, 본문 내용 데이터를 예측에 사용
 
 <p align="center">
-  <img src="https://github.com/DagyeongH/inverstment-dealer-life/assets/95035134/bd66a2e4-afbe-4d21-bb9e-8a3fb581950f">
+  <img src="https://github.com/DagyeongH/inverstment-dealer-life/assets/95035134/bd66a2e4-afbe-4d21-bb9e-8a3fb581950f", width="750" height="400">
 </p>
 
 
@@ -60,7 +61,7 @@
    - sentiment analysis를 뉴스 데이터의 수치화에 적용했으며, 주요 단계는 다음과 같이 진행된다.
 
    **[Sentiment Analysis Steps]**
-      **1) Text Data Collection**
+      1) Text Data Collection
          - 특정 회사와 관련된 정보를 주가 예측 모델의 요소로 반영하고자 하므로, 수집할 데이터는 뉴스기사 형태의 텍스트 데이터이다.
 
       2) Text Pre-processing
@@ -81,7 +82,7 @@
    - 단어의 중요도가 계산되면 이 값은 각각의 단어에 반영되며, 아래와 같이 각 단어는 값을 가지게 된다.  
 
 <p align="center">
-  <img src="https://github.com/DagyeongH/inverstment-dealer-life/assets/95035134/4af81ab3-fec5-4794-ba11-5b5daee92f22">
+  <img src="https://github.com/DagyeongH/inverstment-dealer-life/assets/95035134/4af81ab3-fec5-4794-ba11-5b5daee92f22", width="750" height="400">
 </p>
 
 
@@ -103,7 +104,7 @@
 
    **[LSTM Network]**
    <p align="center">
-  <img src="https://github.com/DagyeongH/inverstment-dealer-life/assets/95035134/5beef3af-82f2-46a9-bddd-30b8a3fded7b">
+  <img src="https://github.com/DagyeongH/inverstment-dealer-life/assets/95035134/5beef3af-82f2-46a9-bddd-30b8a3fded7b", width="750" height="400">
 </p>
 
 
