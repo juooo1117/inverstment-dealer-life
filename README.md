@@ -24,7 +24,8 @@
 
 
 ## ✏️ Data Acquisition
-### [주가데이터(KOSPI)] (yahoo finance, https://finance.yahoo.com/)
+### 주가데이터(KOSPI)
+#### (yahoo finance, https://finance.yahoo.com/)
    - 특정기간 동안의 기업별 KOSPI 정보를 수집하여, 수집된 정보 중 종가(Close) 데이터만 예측에 사용
    - 모델학습 및 데이터 분석에 활용한 기업과 각 기업별 KOSPI 수집기간은 아래와 같음
 
@@ -38,7 +39,8 @@
      |SK hynix Inc. (000660.KS)|2020/1/1~ 2022/12/31|
 
 
-### [뉴스데이터] (빅카인즈, https://www.bigkinds.or.kr/)
+### 뉴스데이터 
+#### (빅카인즈, https://www.bigkinds.or.kr/)
    - 통합데이터 빅카인즈 이용하여 기업별, 일자별로 기업 관련 뉴스 수집
    - 일자, 제목, 본문 내용 데이터를 예측에 사용
 
