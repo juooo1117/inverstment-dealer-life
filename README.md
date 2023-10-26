@@ -104,7 +104,7 @@
 
    **[LSTM Network]**
    <p align="center">
-  <img src="https://github.com/DagyeongH/inverstment-dealer-life/assets/95035134/5beef3af-82f2-46a9-bddd-30b8a3fded7b", width="750" height="400">
+  <img src="https://github.com/DagyeongH/inverstment-dealer-life/assets/95035134/5beef3af-82f2-46a9-bddd-30b8a3fded7b", width="750" height="350">
 </p>
 
 
