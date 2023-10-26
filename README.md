@@ -27,8 +27,7 @@
 ### Data Acquisition
 #### [주가데이터(KOSPI)]
 
-   - yahoo finance 이용하여 특정기간 동안의 기업별 KOSPI 정보를 수집
-   - 수집된 정보 중 종가(Close) 데이터만 예측에 사용
+   - yahoo finance 이용하여 특정기간 동안의 기업별 KOSPI 정보를 수집, 수집된 정보 중 종가(Close) 데이터만 예측에 사용
 
      |Enterprise(KS)|Collection Period|
      |------|------|
@@ -61,6 +60,7 @@
    - sentiment analysis를 뉴스 데이터의 수치화에 적용했으며, 주요 단계는 다음과 같이 진행된다.
 
    **[Sentiment Analysis Steps]**
+      
       1) Text Data Collection
          - 특정 회사와 관련된 정보를 주가 예측 모델의 요소로 반영하고자 하므로, 수집할 데이터는 뉴스기사 형태의 텍스트 데이터이다.
 
