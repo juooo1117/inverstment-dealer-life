@@ -29,14 +29,14 @@
    - yahoo finance 이용하여 특정기간 동안의 기업별 KOSPI 정보를 수집
    - 수집된 정보 중 종가(Close) 데이터만 예측에 사용
 
-   |Enterprise(KS)|Collection Period|
-   |------|------|
-   |LG Chem, Ltd. (051910.KS)|2020/1/1 ~ 2022/12/31|
-   |Hyundai Engineering & Construction Co., Ltd. (000720KS)|2018/1/1 ~ 2021/12/31|
-   |Celltrion, Inc. (068270.KS)|2018/1/1 ~ 2021/12/31|
-   |Samsung Biologics Co.,Ltd. (207940.KS)|2020/1/1 ~ 2022/12/31|
-   |Ncsoft Corporation (036570.KS)|2018/1/1 ~ 2022/12/31|
-   |SK hynix Inc. (000660.KS)|2020/1/1~ 2022/12/31|
+     |Enterprise(KS)|Collection Period|
+     |------|------|
+     |LG Chem, Ltd. (051910.KS)|2020/1/1 ~ 2022/12/31|
+     |Hyundai Engineering & Construction Co., Ltd. (000720KS)|2018/1/1 ~ 2021/12/31|
+     |Celltrion, Inc. (068270.KS)|2018/1/1 ~ 2021/12/31|
+     |Samsung Biologics Co.,Ltd. (207940.KS)|2020/1/1 ~ 2022/12/31|
+     |Ncsoft Corporation (036570.KS)|2018/1/1 ~ 2022/12/31|
+     |SK hynix Inc. (000660.KS)|2020/1/1~ 2022/12/31|
 
 
 #### 뉴스데이터 (빅카인즈, https://www.bigkinds.or.kr/)
