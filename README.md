@@ -1,9 +1,10 @@
 # 2023 BIG CONTEST - KOSPI Stock Prediction
 실제 주식(KOSPI) 데이터와 뉴스의 감성분석(Sentiment analysis)을 통한 '어린이 교육용 주식 예측 게임' 개발
 
+<mark>1차심사 상위우수작 선정</mark>
 
 ## 🏆 Contest 
-####  Awards: 제11회 2023년 BIG CONTEST (빅데이터 플랫폼 활용 - 자유주제리그)  <U>1차심사 상위우수작 선정</U>
+####  Awards: 제11회 2023년 BIG CONTEST (빅데이터 플랫폼 활용 - 자유주제리그)  <mark>1차심사 상위우수작 선정</mark>
 ####  Period: 2023.08.31 ~ 2023.09.27
 ####  👩🏻‍💻 Team Member
 - 김지인
