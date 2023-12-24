@@ -3,13 +3,13 @@
 
 
 ## 🏆 Contest 
-#### [Awards] 제11회 2023년 BIG CONTEST (빅데이터 플랫폼 활용 - 자유주제리그) 1차심사 상위우수작 선정
+#### [Awards] 제11회 2023년 BIG CONTEST (빅데이터 플랫폼 활용 - 자유주제리그) 상위우수작(3등) 선정
 #### [Period] 2023.08.31 ~ 2023.09.27
 #### 👩🏻‍💻 Team Member
-- 김지인
-- 박주현
-- 박채원
-- 홍다경
+- 김지인(Front-End)
+- 박주현(PM, modeling)
+- 박채원(data collection)
+- 홍다경(modeling)
 
 
 ## 🖥️ Project Introduction
